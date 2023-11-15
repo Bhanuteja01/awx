@@ -1,9 +1,6 @@
 import sys
 import os
-import shlex
-
 from datetime import datetime
-from importlib import import_module
 
 sys.path.insert(0, os.path.abspath('./rst/rest_api/_swagger'))
 
@@ -14,19 +11,15 @@ author = u'Red Hat'
 pubdateshort = '2023-08-04'
 pubdate = datetime.strptime(pubdateshort, '%Y-%m-%d').strftime('%B %d, %Y')
 
-# The name for this set of Sphinx documents.  If None, it defaults to
-# "<project> v<release> documentation".
-#html_title = None
+# The name for this set of Sphinx documents.
 html_title = 'Ansible AWX community documentation'
 
-# A shorter title for the navigation bar.  Default is the same as html_title.
-#html_short_title = None
+# A shorter title for the navigation bar.
 html_short_title = 'AWX community documentation'
 
 htmlhelp_basename = 'AWX_docs'
 
 # include the swagger extension to build rest api reference
-#'swagger',
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
@@ -37,6 +30,10 @@ extensions = [
     'sphinx_ansible_theme',
     'swagger',
 ]
+
+
+html_favicon = 'https://github.com/ansible/awx/blob/devel/awx/ui/public/static/media/favicon.ico'
+ 
 
 html_theme = 'sphinx_ansible_theme'
 html_theme_path = ["_static"]
@@ -87,5 +84,4 @@ rst_epilog = """
 .. |rhaa| replace:: Red Hat Ansible Automation
 .. |rhaap| replace:: Red Hat Ansible Automation Platform
 .. |RHAT| replace:: Red Hat Ansible Automation Platform controller
-
 """ % (version, pubdateshort, pubdate)
